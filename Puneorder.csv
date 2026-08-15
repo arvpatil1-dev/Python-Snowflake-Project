@@ -1,0 +1,6 @@
+order_id,customer_name,product,quantity,price,order_date,region
+1,Rahul Sharma,Laptop,1,65000,01-08-2025,Maharashtra
+2,Priya Patil,Mobile,2,28000,02-08-2025,Pune
+3,Amit Verma,Headphones,3,2500,03-08-2025,Delhi
+4,Sneha Joshi,Keyboard,1,3500,04-08-2025,Bangalore
+5,Vijay Kumar,Monitor,2,15000,05-08-2025,Hyderabad
