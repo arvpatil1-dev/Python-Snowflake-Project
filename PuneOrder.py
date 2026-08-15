@@ -4,7 +4,7 @@ import snowflake.connector
 # 1. Snowflake Connection
 conn = snowflake.connector.connect(
     user='arvind',
-    password='Your Password',
+    password='Your password',
     account='en89759.ap-southeast-7.aws',
     warehouse='COMPUTE_WH',
     database='AUTODATA',
@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS PUNEORDER(
     product VARCHAR(100),
     quantity INT,
     price FLOAT,
+    total_amount FLOAT,
     order_date DATE,
     region VARCHAR(50)
 )
@@ -37,8 +38,8 @@ print("\nPUNEORDER Table Created!")
 # 4. Insert Data into Snowflake
 for index, row in df.iterrows():
     cur.execute(
-        "INSERT INTO PUNEORDER(order_id, customer_name, product, quantity, price, order_date, region) VALUES (%s, %s, %s, %s, %s, %s, %s)",
-        (row['order_id'], row['customer_name'], row['product'], row['quantity'], row['price'], row['order_date'], row['region'])
+        "INSERT INTO PUNEORDER(order_id, customer_name, product, quantity, price,total_amount, order_date, region) VALUES (%s, %s, %s, %s, %s,%s, %s, %s)",
+        (row['order_id'], row['customer_name'], row['product'], row['quantity'], row['price'],row['quantity']*row['price'], row['order_date'], row['region'])
     )
 
 conn.commit()
@@ -46,10 +47,14 @@ print("Data Inserted Successfully!")
 
 # 5. Verify Data
 cur.execute("SELECT * FROM PUNEORDER")
+#cur.execute("update puneorder set customer_name='arvind ' where order_id=1 ")
 results = cur.fetchall()
 print("\nFinal Data in Snowflake:")
 for r in results:
     print(r)
 
+#cur.execute("delete from PUNEORDER WHERE  ORDER_ID=5" )
+
+conn.commit()
 cur.close()
 conn.close()

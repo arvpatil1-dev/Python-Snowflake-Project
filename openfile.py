@@ -11,7 +11,7 @@ print("Browsen")
 
 conn = snowflake.connector.connect(
     user='arvind',
-    password='Your Password',
+    password='your password',
     account='en89759.ap-southeast-7.aws',
     warehouse='COMPUTE_WH',
     database='AUTODATA',
