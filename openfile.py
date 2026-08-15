@@ -10,8 +10,8 @@ import pandas as pd
 print("Browsen")
 
 conn = snowflake.connector.connect(
-    user='arvindpune',
-    password='Patilarvind@123',
+    user='arvind',
+    password='Your Password',
     account='en89759.ap-southeast-7.aws',
     warehouse='COMPUTE_WH',
     database='AUTODATA',
