@@ -6,7 +6,7 @@ print("Starting CSV Load to Snowflake...")
 # 1. Snowflake Connection
 conn = snowflake.connector.connect(
     user='arvind',
-    password='Your-passwword',
+    password='Your Password',
     account='en89759.ap-southeast-7.aws',
     warehouse='COMPUTE_WH',
     database='AUTODATA',
